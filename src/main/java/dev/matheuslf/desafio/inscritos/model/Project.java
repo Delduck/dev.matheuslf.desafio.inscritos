@@ -1,8 +1,6 @@
 package dev.matheuslf.desafio.inscritos.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
@@ -15,11 +13,8 @@ public class Project {
     private Long id;
 
     @Column(nullable = false, length = 100)
-    @Size(min = 3, max=100)
-    @NotBlank
     private String name;
 
-    @Column(columnDefinition = "TEXT")
     private String description;
 
     private LocalDate startDate;

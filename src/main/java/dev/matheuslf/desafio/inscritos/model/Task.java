@@ -3,11 +3,8 @@ package dev.matheuslf.desafio.inscritos.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "tasks")
@@ -18,8 +15,6 @@ public class Task {
     private Long id;
 
     @Column(nullable = false, length = 150)
-    @Size(min = 5, max = 150)
-    @NotBlank
     private String title;
 
     @Column(columnDefinition = "TEXT")

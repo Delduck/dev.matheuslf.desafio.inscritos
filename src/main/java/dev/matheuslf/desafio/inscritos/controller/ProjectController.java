@@ -1,16 +1,46 @@
 package dev.matheuslf.desafio.inscritos.controller;
 
+import dev.matheuslf.desafio.inscritos.dto.ProjectRequestDTO;
+import dev.matheuslf.desafio.inscritos.dto.ProjectResponseDTO;
+import dev.matheuslf.desafio.inscritos.mapper.ProjectMapper;
+import dev.matheuslf.desafio.inscritos.model.Project;
 import dev.matheuslf.desafio.inscritos.service.ProjectService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/projects")
 public class ProjectController {
 
     private final ProjectService projectService;
+    private final ProjectMapper projectMapper;
 
-    public ProjectController(ProjectService projectService) {
+    public ProjectController(ProjectService projectService, ProjectMapper projectMapper) {
         this.projectService = projectService;
+        this.projectMapper = projectMapper;
+    }
+
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProjectResponseDTO create(@RequestBody @Valid ProjectRequestDTO projectRequest){
+        Project newProject = projectMapper.toEntity(projectRequest);
+        Project savedProject = projectService.create(newProject);
+
+        return projectMapper.toDTO(savedProject);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ProjectResponseDTO>> list(){
+        List<Project> projects = projectService.listAll();
+        List<ProjectResponseDTO> dtos = projects.stream()
+                .map(projectMapper::toDTO)
+                .toList();
+
+        return ResponseEntity.ok(dtos);
     }
 }
