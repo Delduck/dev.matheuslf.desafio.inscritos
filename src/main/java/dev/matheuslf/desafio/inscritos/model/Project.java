@@ -21,6 +21,13 @@ public class Project {
 
     private LocalDate endDate;
 
+    @PrePersist
+    private void startDate() {
+        if (this.startDate == null) {
+            this.startDate = LocalDate.now();
+        }
+    }
+
     public Long getId() {
         return id;
     }

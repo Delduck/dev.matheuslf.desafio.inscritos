@@ -15,18 +15,11 @@ public class ProjectService {
         this.projectRepository = projectRepository;
     }
 
-    public Project create(Project p){
-        return projectRepository.save(p);
+    public Project create(Project project){
+        return projectRepository.save(project);
     }
 
     public List<Project> listAll(){
         return projectRepository.findAll();
     }
-
-    public Project findById(Long id){
-        return projectRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Project not found")
-        );
-    }
-
 }
