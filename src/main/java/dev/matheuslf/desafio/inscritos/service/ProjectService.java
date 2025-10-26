@@ -2,6 +2,8 @@ package dev.matheuslf.desafio.inscritos.service;
 
 import dev.matheuslf.desafio.inscritos.model.Project;
 import dev.matheuslf.desafio.inscritos.repository.ProjectRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +21,7 @@ public class ProjectService {
         return projectRepository.save(project);
     }
 
-    public List<Project> listAll(){
-        return projectRepository.findAll();
+    public Page<Project> listAll(Pageable pageable){
+        return projectRepository.findAll(pageable);
     }
 }

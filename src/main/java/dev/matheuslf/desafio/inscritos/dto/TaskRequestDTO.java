@@ -11,8 +11,8 @@ import java.time.LocalDate;
 public record TaskRequestDTO(
         @NotBlank @Size(min = 5, max = 150) String title,
         String description,
-        Status status,
-        Priority priority,
+        String status,
+        String priority,
         LocalDate dueDate,
         @NotNull Long projectId
 ) {}

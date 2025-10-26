@@ -6,6 +6,7 @@ import dev.matheuslf.desafio.inscritos.mapper.ProjectMapper;
 import dev.matheuslf.desafio.inscritos.model.Project;
 import dev.matheuslf.desafio.inscritos.service.ProjectService;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +37,8 @@ public class ProjectController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProjectResponseDTO>> list(Pageable pageable){
-        List<Project> projects = projectService.listAll(pageable);
+    public ResponseEntity<List<ProjectResponseDTO>> list(Pageable pageable) {
+        Page<Project> projects = projectService.listAll(pageable);
         List<ProjectResponseDTO> dtos = projects.stream()
                 .map(projectMapper::toDTO)
                 .toList();

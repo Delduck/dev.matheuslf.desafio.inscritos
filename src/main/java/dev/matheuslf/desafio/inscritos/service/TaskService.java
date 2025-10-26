@@ -1,9 +1,12 @@
 package dev.matheuslf.desafio.inscritos.service;
 
+import dev.matheuslf.desafio.inscritos.model.Priority;
 import dev.matheuslf.desafio.inscritos.model.Status;
 import dev.matheuslf.desafio.inscritos.model.Task;
 import dev.matheuslf.desafio.inscritos.repository.ProjectRepository;
 import dev.matheuslf.desafio.inscritos.repository.TaskRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,10 +22,18 @@ public class TaskService {
         this.projectRepository = projectRepository;
     }
 
-    public Task create(Task t, Long projectId){
+    public Task create(Task task, Long projectId){
         var project = projectRepository.findById(projectId).orElseThrow(() -> new RuntimeException("Project not found"));
-        t.setProjectId(project);
-        return taskRepository.save(t);
+        task.setProjectId(project);
+        return taskRepository.save(task);
+    }
+
+    public Page<Task> findByFilters(Status status, Priority priority, Long projectId, Pageable pageable) {
+        if (status == null && priority == null && projectId == null) {
+            return taskRepository.findAll(pageable);
+        }
+
+        return taskRepository.findByFilters(status, priority, projectId, pageable);
     }
 
     public List<Task> findAll(){

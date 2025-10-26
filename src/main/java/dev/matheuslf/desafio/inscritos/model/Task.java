@@ -29,7 +29,7 @@ public class Task {
 
     private LocalDate dueDate;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "project_id")
     private Project projectId;
 

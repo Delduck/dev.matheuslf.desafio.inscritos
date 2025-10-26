@@ -15,7 +15,7 @@ public interface TaskMapper {
 
     TaskMapper INSTANCE = Mappers.getMapper(TaskMapper.class);
 
-    @Mapping(source = "projectId", target = "projectId")
+    @Mapping(source = "projectId", target = "project")
     @Mapping(source = "status", target = "status", qualifiedByName = "enumToString")
     @Mapping(source = "priority", target = "priority", qualifiedByName = "enumToString")
     TaskResponseDTO toDTO(Task task);
