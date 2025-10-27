@@ -1,7 +1,7 @@
 package dev.matheuslf.desafio.inscritos.mapper;
 
-import dev.matheuslf.desafio.inscritos.dto.TaskRequestDTO;
-import dev.matheuslf.desafio.inscritos.dto.TaskResponseDTO;
+import dev.matheuslf.desafio.inscritos.dto.request.TaskRequestDTO;
+import dev.matheuslf.desafio.inscritos.dto.response.TaskResponseDTO;
 import dev.matheuslf.desafio.inscritos.model.Priority;
 import dev.matheuslf.desafio.inscritos.model.Status;
 import dev.matheuslf.desafio.inscritos.model.Task;

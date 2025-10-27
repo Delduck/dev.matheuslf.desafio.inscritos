@@ -1,7 +1,5 @@
-package dev.matheuslf.desafio.inscritos.dto;
+package dev.matheuslf.desafio.inscritos.dto.request;
 
-import dev.matheuslf.desafio.inscritos.model.Priority;
-import dev.matheuslf.desafio.inscritos.model.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

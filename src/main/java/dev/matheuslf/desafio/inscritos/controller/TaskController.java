@@ -1,12 +1,9 @@
 package dev.matheuslf.desafio.inscritos.controller;
 
-import dev.matheuslf.desafio.inscritos.dto.ProjectResponseDTO;
-import dev.matheuslf.desafio.inscritos.dto.TaskRequestDTO;
-import dev.matheuslf.desafio.inscritos.dto.TaskResponseDTO;
-import dev.matheuslf.desafio.inscritos.mapper.ProjectMapper;
+import dev.matheuslf.desafio.inscritos.dto.request.TaskRequestDTO;
+import dev.matheuslf.desafio.inscritos.dto.response.TaskResponseDTO;
 import dev.matheuslf.desafio.inscritos.mapper.TaskMapper;
 import dev.matheuslf.desafio.inscritos.model.Priority;
-import dev.matheuslf.desafio.inscritos.model.Project;
 import dev.matheuslf.desafio.inscritos.model.Status;
 import dev.matheuslf.desafio.inscritos.model.Task;
 import dev.matheuslf.desafio.inscritos.repository.ProjectRepository;

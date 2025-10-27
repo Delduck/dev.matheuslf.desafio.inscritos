@@ -1,7 +1,7 @@
 package dev.matheuslf.desafio.inscritos.controller;
 
-import dev.matheuslf.desafio.inscritos.dto.ProjectRequestDTO;
-import dev.matheuslf.desafio.inscritos.dto.ProjectResponseDTO;
+import dev.matheuslf.desafio.inscritos.dto.request.ProjectRequestDTO;
+import dev.matheuslf.desafio.inscritos.dto.response.ProjectResponseDTO;
 import dev.matheuslf.desafio.inscritos.mapper.ProjectMapper;
 import dev.matheuslf.desafio.inscritos.model.Project;
 import dev.matheuslf.desafio.inscritos.service.ProjectService;
