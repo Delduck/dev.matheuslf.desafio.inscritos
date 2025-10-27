@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 
 public record ProjectRequestDTO(
-        @NotBlank @Size(min = 3, max = 100) String name,
+        @NotBlank(message = "Name is required") @Size(min = 3, max = 100) String name,
         String description,
         LocalDate startDate,
         LocalDate endDate
